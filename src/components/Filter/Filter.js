@@ -3,8 +3,8 @@ import { FilterIntput, FilterTitle } from "./Filter.styled"
 
 
 
-export const Filter = ({title, state, handleFindContact}) =>{
-    const {filter} = state
+export const Filter = ({title, filter, handleFindContact}) =>{
+    
     return(
         <>
             <FilterTitle>{title}</FilterTitle>
@@ -21,7 +21,7 @@ export const Filter = ({title, state, handleFindContact}) =>{
 
 Filter.propTypes = {
     title: PropTypes.string.isRequired,
-    state: PropTypes.object.isRequired,
+    filter: PropTypes.string.isRequired,
     handleFindContact: PropTypes.func.isRequired,
 
 }
