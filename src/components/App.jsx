@@ -10,6 +10,7 @@ import Container from "./Container/Conteiner.styled";
 import { ContactForm } from "./Form/Form";
 import { Filter } from "./Filter/Filter";
 import { PrimaryTitle, SecondaryTitle } from "./Titles/Titles";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,15 +24,18 @@ const initContacts =[
 
 export const App = () =>{
 
-  const [contacts, setContacts] = useState(()=> JSON.parse(window.localStorage.getItem(CONTACTS_KEY)) ?? initContacts);
+  console.log(useLocalStorage(CONTACTS_KEY, initContacts))
+
+  const [contacts, setContacts] = useLocalStorage(CONTACTS_KEY, initContacts)
+  //const [contacts, setContacts] = useState(()=> JSON.parse(window.localStorage.getItem(CONTACTS_KEY)) ?? initContacts);
   const [filter, setfFilter] = useState('');
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
+  //   localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
     
-  }, [contacts])
+  // }, [contacts])
 
  
   const handleSubmit = (values, {resetForm}) =>{
